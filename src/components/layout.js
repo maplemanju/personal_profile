@@ -1,33 +1,39 @@
 import * as React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+//import { Link, useStaticQuery, graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import {
-  container,
-  body,
-} from './layout.module.scss'
+import * as style from './layout.module.scss'
 
 const Layout = ({ pageTitle, children }) => {
 
   //sample query
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
-    <div className={body}>
-      <header>
-        <div className={container}>
-        <StaticImage
-          alt="amayadori logo"
-          src="../images/logo.png"
-          width="335"
-        />
+    <div>
+      <header> 
+        <div className={style.headerBlock}>
+          <div className={style.clouds}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div className={style.container}>
+          <StaticImage
+            alt="amayadori logo"
+            src="../images/logo.png"
+            width={335}
+            className={style.logo}
+          />
+          </div>
         </div>
       </header>
 
@@ -36,7 +42,7 @@ const Layout = ({ pageTitle, children }) => {
       </main>
 
       <footer>
-        <div className={container}></div>
+        <div className={style.container}></div>
       </footer>
     </div>
   )
