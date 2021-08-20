@@ -1,6 +1,6 @@
 import * as React from 'react'
 //import { Link, useStaticQuery, graphql } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+//import { StaticImage } from 'gatsby-plugin-image'
 import * as style from './layout.module.scss'
 
 const Layout = ({ pageTitle, children }) => {
@@ -27,12 +27,7 @@ const Layout = ({ pageTitle, children }) => {
             <div></div>
           </div>
           <div className={style.container}>
-          <StaticImage
-            alt="amayadori logo"
-            src="../images/logo.png"
-            width={335}
-            className={style.logo}
-          />
+          <div className={style.logo}>Amayadori</div>
           </div>
         </div>
       </header>

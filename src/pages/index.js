@@ -10,16 +10,18 @@ const IndexPage = () => {
 
       <section className={style.bigDivTop}>
         <div className={style.container}>
-          <div className={style.layerTop}></div>
+          <div className={style.layerTop}>
+            <p>create magic</p>
+          </div>
         </div>
       </section>
 
-      <section className={style.bigDivSolid}>
+      <section className={style.bigDivWhite}>
       </section>
-      <section className={style.bigDivWhite}></section>
-      <section className={style.bigDivTrans}></section>
       <section className={style.bigDivSolid}></section>
       <section className={style.bigDivWhite}></section>
+      <section className={style.bigDivSolid}></section>
+      <section className={style.bigDivTrans}></section>
       <section className={style.bigDivDark}></section>
 
       <div className={style.background}>

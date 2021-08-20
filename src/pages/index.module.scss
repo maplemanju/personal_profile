@@ -1,7 +1,7 @@
-
+@use "../styles/vars" as *;
 
 //background
-$bg-color: #e8ffea;
+$bg-color: #e2edda;
 $dot-color: #529650;
 $dot-size: 3px;
 $dot-space: 40px;
@@ -50,15 +50,15 @@ $dot-space: 40px;
   }
   .layer-top {
     width: 90%;
-    height: width;
-    background: #fff;
-    border-radius: 100%;
     position: absolute;
-    bottom: -20%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    padding-bottom: 90%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    p {
+      font-family: monospace;
+      color: $dark-main;
+      font-size: 3em;
+    }
   }
 }
 
@@ -85,7 +85,6 @@ $dropDeg: rotate(135deg);
   position: absolute;
   animation: fall infinite;
   &:nth-child(1) {
-    
     animation-duration: 7.3s;
     animation-delay: 1.2s;
     @include droplet-char(10%, 0.3, 1);
@@ -115,14 +114,15 @@ $dropDeg: rotate(135deg);
 
 @keyframes fall {
   0% {
-    opacity: 0.1;
-    transform: rotate3d(0, 1, 1, 0deg) $dropDeg;
+    transform: rotate3d(0, 1, 0, 80deg) $dropDeg;
   }
-  60% {
-    transform: rotate3d(0, 1, 0, 190deg) $dropDeg;
+  80% {
+    transform: rotate3d(0, 1, 0, 0deg) $dropDeg;
+    opacity: 0.2
   }
   100% {
     top: 90%;
-    transform: rotate3d(0, 1, 0, 140deg) $dropDeg;
+    transform: rotate3d(0, 1, 0, 190deg) $dropDeg;
+    opacity: 0;
   }
 }
