@@ -22,6 +22,7 @@ $dot-space: 40px;
 %container {
   margin: auto;
   height: 100%;
+  width: 90%;
 }
 
 .container {
@@ -29,9 +30,10 @@ $dot-space: 40px;
   max-width: 800px;
 }
 
-@mixin big-div($type, $background: transparent, $height: 500px) {
+@mixin big-div($type, $background: transparent, $height: auto) {
   .big-div-#{$type} {
     height: $height;
+    min-height: 300px;
     background: $background;
     position: relative;
   }
@@ -39,7 +41,7 @@ $dot-space: 40px;
 @include big-div("top", transparent, 500px);
 @include big-div("white", rgba(255, 255, 255, 0.541));
 @include big-div("solid", #fff);
-@include big-div("trans", transparent, 300px);
+@include big-div("trans", transparent);
 @include big-div("dark", #000);
 
 .big-div-top  {
