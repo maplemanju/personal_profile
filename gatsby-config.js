@@ -8,7 +8,6 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-manifest",
@@ -30,6 +29,22 @@ module.exports = {
         name: "works",
         path: `${__dirname}/works`,
       }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              sizeByPixelDensity: true,
+              linkImagesToOriginal: false,
+              withWebp: true,
+            },
+          },
+        ],
+      },
     },
   ],
 };
