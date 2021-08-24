@@ -1,6 +1,51 @@
+@use "../styles/vars" as *;
+
+.work-body {
+  font-size: 25px;
+  color: #888;
+}
+
 .content {
   ul {
     list-style: none;
     padding: 0;
+    li {
+      position: relative;
+      padding-left: 1em;
+      margin-bottom: 1em;
+      &:before {
+        background-image: linear-gradient(180deg, $light-main, $highlight);
+        border-radius: 100%;
+        width: 10px;
+        height: 10px;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
   }
+  p {
+    line-height: 1.6em;
+  }
+  iframe {
+    display: block;
+    margin: 2em auto;
+  }
+}
+
+.sec-head {
+  color: $dark-highlight;
+  font-size: 2em;
+}
+
+.tool {
+  color: $dark-main;
+  background: $light-main;
+  display: inline-block;
+  margin: 0;
+  padding: 0.4em;
+  border-radius: 13px;
 }

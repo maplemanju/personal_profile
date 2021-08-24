@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
-//import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import * as style from "./index.module.scss"
-import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import WorkSection from '../components/WorkSection'
-
+import WildseasarBg from '../../works/wild-seasar/wild-seasar-top.jpg';
+import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-site.jpg";
 
 const IndexPage = ({data}) => {
   const chatSec = useRef();
@@ -15,7 +15,9 @@ const IndexPage = ({data}) => {
       <section className={style.bigDivTop}>
         <div className={style.container}>
           <div className={style.layerTop}>
-          <iframe src="http://localhost:3000/" width="400" height="500" style={{border: "0px",maxWidth: "90%" }}></iframe>
+            <p>aspiring React developer</p>
+            <p>front end developer</p>
+            <p>create magic</p>
           </div>
         </div>
       </section>
@@ -28,11 +30,16 @@ const IndexPage = ({data}) => {
 
       <section className={style.bigDivSolid}>
         <div className={style.container}>
-          <WorkSection slug="wild-seasar" />
+          <WorkSection slug="wild-seasar" title="Corporate Sites">
+            <div className={style.splashStyle1}>
+              <div style={{backgroundImage: `url(${WildseasarBg})`}}></div>
+              <div style={{backgroundImage: `url(${TenkaichiBg})`}}></div>
+            </div>
+          </WorkSection>
         </div>
       </section>
 
-      <section className={style.bigDivSolid}>
+      <section className={style.bigDivWhite}>
         <div className={style.container}>
           <WorkSection slug="lol-eslib" />
         </div>

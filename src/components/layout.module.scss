@@ -81,7 +81,7 @@ $logo-color: #ccc;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $tablet2) {
   .clouds {
     > * {
       width: 150px;
@@ -95,9 +95,16 @@ $logo-color: #ccc;
       }
       @include cloud-char(1, 0, 1, 1);
       @include cloud-char(2, 16%, 0.6,  -1);
-      @include cloud-char(3, 55%, 0.7, 1);
-      @include cloud-char(4, 70%, 0.8, -1);
+      @include cloud-char(3, 50%, 0.7, 1);
+      @include cloud-char(4, 60%, 0.8, -1);
     }
   }
+}
 
+@media only screen and (max-width: $mobile2) {
+  .clouds {
+    > * {
+      @include cloud-char(4, 50%, 0.8, -1);
+    }
+  }
 }

@@ -36,26 +36,19 @@ $dot-space: 40px;
     min-height: 300px;
     background: $background;
     position: relative;
+    padding: 2em 0;
   }
 }
-@include big-div("top", transparent, 500px);
+@include big-div("top", transparent);
 @include big-div("white", rgba(255, 255, 255, 0.541));
 @include big-div("solid", #fff);
 @include big-div("trans", transparent);
 @include big-div("dark", #000);
 
 .big-div-top  {
-  .container {
-    @extend %container;
-    max-width: 500px;
-    position: relative;
-  }
+  padding-top: 50px;
   .layer-top {
-    width: 90%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    text-align: center;
     p {
       font-family: monospace;
       color: $dark-main;
@@ -69,7 +62,6 @@ $dot-space: 40px;
   width: 100%;
   height: 100%;
 }
-
 
 $dropDeg: rotate(135deg);
 @mixin droplet-char($x, $opacity, $scale) {
@@ -126,5 +118,39 @@ $dropDeg: rotate(135deg);
     top: 90%;
     transform: rotate3d(0, 1, 0, 190deg) $dropDeg;
     opacity: 0;
+  }
+}
+
+.splash-style1 {
+  display:flex;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  margin: 1em auto;
+  background: $main;
+  > * {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    transition: 0.3s ease;
+    &:first-child {
+      background-position: 0 50%;
+    }
+    &:last-child {
+      background-position: 100% 50%;
+    }
+    &:hover {
+      width: 90%;
+      opacity: 1;
+    }
+    &:not(:hover) {
+      opacity: 0.7;
+    }
+  }
+}
+@media only screen and (max-width: $mobile1) {
+  .splash-style1 {
+    margin: 1em -5%;
+    height: 250px;
   }
 }

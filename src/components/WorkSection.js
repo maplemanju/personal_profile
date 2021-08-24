@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as style from './WorkSection.module.scss'
 
-const WorkSection = ({ slug }) => {
+const WorkSection = (props) => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -21,12 +21,14 @@ const WorkSection = ({ slug }) => {
     }
   `)
 
-  const work = data.allMdx.nodes.find(node => node.slug === slug);
+  const work = data.allMdx.nodes.find(node => node.slug === props.slug+"/");
+  const title = props.title ? props.title : work.frontmatter.title
   return(
-    <div>
-      <h2>{work.frontmatter.title}</h2>
-      <p>{work.frontmatter.tool}</p>
+    <div className={style.workBody}>
+      <h2 className={style.secHead}>{title}</h2>
+      <p className={style.tool}>{work.frontmatter.tool}</p>
       <div className={style.content}>
+        {props.children}
         <MDXRenderer>
           {work.body}
         </MDXRenderer>
