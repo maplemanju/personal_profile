@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../../components/layout'
-
+import * as style from "./index.module.scss"
 
 const Works = ({ data }) => {
   return (

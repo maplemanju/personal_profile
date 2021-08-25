@@ -8,3 +8,10 @@ $tablet1: 1199px;
 $tablet2: 899px;
 $mobile1: 400px;
 $mobile2: 329px;
+
+%container {
+  margin: auto;
+  height: 100%;
+  width: 90%;
+  max-width: 800px;
+}

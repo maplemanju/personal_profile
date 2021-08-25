@@ -9,7 +9,6 @@ import ChatBot from '../components/ChatBot/ChatBot'
 
 const IndexPage = ({data}) => {
   const [currentSection, setCurrentSection] = useState(0);
-  const currentRef = useRef();
   const mainRef = useRef();
 
   let lastScroll = 0;
@@ -88,20 +87,9 @@ const IndexPage = ({data}) => {
       );
     })}
       
-      <div className={style.background}>
-        <Droplets count={5}/>
-      </div>
     </Layout>
   )
 }
 
 export default IndexPage
-
-function Droplets({count}){
-  const drops = []
-  for (let i = 0; i < count; i++) {
-    drops.push(<div key={`drop-${i}`} className={style.droplet}></div>)
-  }
-  return drops;
-}
 
