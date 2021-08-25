@@ -6,15 +6,15 @@ import * as style from "./index.module.scss"
 
 const Works = ({ data }) => {
   return (
-    <Layout>
+    <Layout pageTitle="Works">
     <div className={style.container}>
-    {data.allMdx.nodes.map((item)=> {
-      return (
-        <div>
-          <h2><span>{item.frontmatter.title}</span></h2>
-        </div>
-      );
-    })}
+      {data.allMdx.nodes.map((item)=> {
+        return (
+          <div>
+            <h2><span>{item.frontmatter.title}</span></h2>
+          </div>
+        );
+      })}
     </div>
     </Layout>
   )

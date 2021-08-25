@@ -201,8 +201,6 @@ footer {
   margin-bottom: 3em;
   a {
     flex-basis: 100px;
-    text-decoration: none;
-    color: inherit;
     svg {
       display: block;
       margin: 0 auto 1em;
@@ -214,3 +212,17 @@ footer {
   }
 }
 
+.big-div-top  {
+  padding-top: 50px;
+  text-align: center;
+  h1 {
+    font-family: monospace;
+    color: $dark-main;
+    font-size: 3em;
+  }
+}
+
+.contents {
+  padding: 2em 0;
+  background: #fff;
+}
