@@ -25,13 +25,13 @@ const WorkSection = (props) => {
   const title = props.title ? props.title : work.frontmatter.title
   return(
     <div className={style.workBody}>
-      <h2 className={style.secHead}>{title}</h2>
+      <h2 className={style.secHead}><span>{title}</span></h2>
       <p className={style.tool}>{work.frontmatter.tool}</p>
       <div className={style.content}>
-        {props.children}
         <MDXRenderer>
           {work.body}
         </MDXRenderer>
+        {props.children}
       </div>
     </div>
   );

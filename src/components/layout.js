@@ -3,7 +3,7 @@ import * as React from 'react'
 //import { StaticImage } from 'gatsby-plugin-image'
 import * as style from './layout.module.scss'
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ children, innerRef, mainRef }) => {
 
   //sample query
   // const data = useStaticQuery(graphql`
@@ -32,7 +32,7 @@ const Layout = ({ pageTitle, children }) => {
         </div>
       </header>
 
-      <main>
+      <main ref={mainRef}>
         {children}
       </main>
 

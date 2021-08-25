@@ -37,6 +37,8 @@ $dot-space: 40px;
     background: $background;
     position: relative;
     padding: 2em 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
   }
 }
 @include big-div("top", transparent);
@@ -153,4 +155,8 @@ $dropDeg: rotate(135deg);
     margin: 1em -5%;
     height: 250px;
   }
+}
+
+.active-sec {
+  opacity: 1;
 }
