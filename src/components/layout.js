@@ -1,20 +1,7 @@
 import * as React from 'react'
-//import { Link, useStaticQuery, graphql } from 'gatsby'
-//import { StaticImage } from 'gatsby-plugin-image'
 import * as style from './layout.module.scss'
 
-const Layout = ({ children, innerRef, mainRef }) => {
-
-  //sample query
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+const Layout = ({ children, mainRef }) => {
 
   return (
     <div>
@@ -37,7 +24,12 @@ const Layout = ({ children, innerRef, mainRef }) => {
       </main>
 
       <footer>
-        <div className={style.container}></div>
+        <div className={style.container}>
+          <div>copyright 2021</div>
+          <div>
+            <a></a>
+          </div>
+        </div>
       </footer>
     </div>
   )
