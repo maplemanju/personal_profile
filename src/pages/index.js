@@ -12,16 +12,24 @@ const IndexPage = ({data}) => {
   const mainRef = useRef();
 
   let lastScroll = 0;
-  window.addEventListener('scroll', (event) => {
-    const scrollY = window.scrollY;
-    const sections = mainRef.current.querySelectorAll("section");
-    if (scrollY > lastScroll) { //going down
-      onScrollEffect(sections, scrollY, true);
-    } else { //going up
-      onScrollEffect(sections, scrollY, false);
+  React.useEffect(() => {
+    const scrollIndex = (event) => {
+      event.preventDefault();
+      const scrollY = window.scrollY;
+      const sections = mainRef.current.querySelectorAll("section");
+      if (scrollY > lastScroll) { //going down
+        onScrollEffect(sections, scrollY, true);
+      } else { //going up
+        onScrollEffect(sections, scrollY, false);
+      }
+      lastScroll = scrollY;
     }
-    lastScroll = scrollY;
-  });
+
+    window.addEventListener('scroll', scrollIndex);
+    return () => {
+      window.removeEventListener('scroll', scrollIndex);
+    };
+  }, []);
 
   const onScrollEffect = (sections, scrollY, goingDown) => {
     sections.forEach((section, i) => {
@@ -68,7 +76,7 @@ const IndexPage = ({data}) => {
     }
   ]
   return (
-    <Layout pageTitle="Home Page" mainRef={mainRef}>
+    <Layout pageTitle="Home" mainRef={mainRef}>
 
     {sectionsObj.map((section, i) => {
       let content = "";
