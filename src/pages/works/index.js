@@ -36,7 +36,7 @@ export default Works
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(sort: {order: DESC, fields: frontmatter___publish_date}) {
       nodes {
         slug
         frontmatter {

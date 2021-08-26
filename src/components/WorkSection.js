@@ -28,10 +28,11 @@ const WorkSection = (props) => {
       <h2 className={style.secHead}><span>{title}</span></h2>
       <p className={style.tool}>{work.frontmatter.tool}</p>
       <div className={style.content}>
+        
+        {props.children}
         <MDXRenderer>
           {work.body}
         </MDXRenderer>
-        {props.children}
       </div>
     </div>
   );

@@ -1,11 +1,16 @@
 @use "../styles/vars" as *;
 
 body {
-  font-size: 16px;
+  font-size: 21px;
   font-family: sans-serif;
   line-height: normal;
   margin: 0;
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {
@@ -193,6 +198,7 @@ $logo-color: #ccc;
 footer {
   padding: 70px 0;
   text-align: center;
+  font-size: 1rem;
 }
 
 .sns-links {
@@ -213,16 +219,26 @@ footer {
 }
 
 .big-div-top  {
-  padding-top: 50px;
+  padding: 50px 0;
   text-align: center;
   h1 {
     font-family: monospace;
     color: $dark-main;
     font-size: 3em;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: $mobile1) {
+  .big-div-top  {
+    padding: 20px 0;
+    h1 {
+      font-size: 2em;
+    }
   }
 }
 
 .contents {
-  padding: 2em 0;
+  padding: 4em 0;
   background: #fff;
 }

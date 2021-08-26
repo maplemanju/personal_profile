@@ -62,10 +62,7 @@ const IndexPage = ({data}) => {
       slug: "chat-bot",
       class: style.bigDivSolid,
       children: 
-        <div>
-          <div className={style.chatBotFrame}><ChatBot/></div>
-          <p>Chat strings are pulled from json file as object. Its nodes have a pair of messages and choices, and the object gets updated every selection made by the user.</p>
-        </div>
+        <div className={style.chatBotFrame}><ChatBot/></div>
     },
     {
       slug: "wild-seasar",
