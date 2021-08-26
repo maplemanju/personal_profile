@@ -53,9 +53,9 @@ const IndexPage = ({data}) => {
       class: style.bigDivTop,
       children:
       <div className={style.layerTop}>
-        <p>aspiring React developer</p>
-        <p>front end developer</p>
-        <p>create magic</p>
+        <p className={style.animShowletters}>Hello, I'm Clemente</p>
+        <p className={style.animShowletters}>aspiring React dev</p>
+        <p className={style.animShowletters}>front end dev</p>
       </div>
     },
     {

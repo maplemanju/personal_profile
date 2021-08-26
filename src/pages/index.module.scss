@@ -7,29 +7,62 @@
 @mixin big-div($type, $background: transparent, $height: auto) {
   .big-div-#{$type} {
     height: $height;
-    min-height: 300px;
     background: $background;
     position: relative;
     padding: 2em 0;
     opacity: 0.6;
     transition: opacity 0.3s ease;
+    box-sizing: border-box;
   }
 }
-@include big-div("top", transparent, 75vh);
+@include big-div("top", transparent, 250px);
 @include big-div("white", rgba(255, 255, 255, 0.541));
 @include big-div("solid", #fff);
 @include big-div("trans", transparent);
 @include big-div("dark", #000);
 
 .big-div-top  {
-  padding-top: 50px;
+  padding-top: 70px;
   .layer-top {
     text-align: center;
+    width: 100%;
+    height: 100%;
+    position:relative;
     p {
       font-family: monospace;
       color: $dark-main;
       font-size: 2em;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%,-70%);
+      width: 15em;
+      overflow: hidden;
+      white-space: nowrap;
+      &:first-child {
+        + p {
+          animation-delay: 4s;
+          + p {
+            animation-delay: 8s;
+          }
+        }
+      }
     }
+    .anim-showletters {
+      animation: showletters 12s ease 0s infinite normal both;
+    }
+    @keyframes showletters {
+      0%{width: 0;}
+      25%{opacity:1;}
+      30% {width: 15em;opacity:0;}
+      100%{opacity:0;}
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile1) {
+  .big-div-top .layer-top p {
+    font-size: 1.2em;
   }
 }
 

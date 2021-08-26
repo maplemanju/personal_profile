@@ -18,16 +18,16 @@ a {
 }
 
 //background
-$bg-color: #e2edda;
-$dot-color: #529650;
+$dot-color: #030303;
 $dot-size: 3px;
 $dot-space: 40px;
 .background {
-  background:
-    linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
-    linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, 
-    $dot-color;
-  background-size: $dot-space $dot-space;
+  // background:
+  //   linear-gradient(90deg, $main ($dot-space - $dot-size), transparent 1%) center,
+  //   linear-gradient($main ($dot-space - $dot-size), transparent 1%) center, 
+  //   $dot-color;
+  // background-size: $dot-space $dot-space;
+  background: $main;
   z-index: -1;
   position: fixed;
   width: 100%;
@@ -110,13 +110,13 @@ $dropDeg: rotate(135deg);
   left: $left;
   @keyframes #{$animation} {
     0% {
-      transform: scale($scale) rotate3d(1, 0, 0, 110deg) scaleX($flip) translateX(0);
+      transform: scale($scale) rotate3d(1, 0, 0, 110deg) rotate(0) scaleX($flip) translateX(0);
     }
     50% {
-      transform: scale($scale) rotate3d(1, 0, 0, 107deg) scaleX($flip) translateX(3px);
+      transform: scale($scale) rotate3d(1, 0, 0, 108deg) rotate(50deg) scaleX($flip) translateX(3px);
     }
     100% {
-      transform: scale($scale) rotate3d(1, 0, 0, 110deg) scaleX($flip) translateX(0);
+      transform: scale($scale) rotate3d(1, 0, 0, 110deg) rotate(0) scaleX($flip) translateX(0);
     }
   } 
 }
@@ -163,14 +163,20 @@ $dropDeg: rotate(135deg);
     }
 
     &:nth-child(1) {
-      @include leaf-char(10%, 55%, 1, -1, 3s, wiggle1);
+      @include leaf-char(10%, 55%, 1, -1, 6s, wiggle1);
     }
     &:nth-child(2) {
       @include leaf-char(25%, 75%, 2, 1, 5s, wiggle2);
     }
     &:nth-child(3) {
-      @include leaf-char(30%, 30%, 1, 1, 7s, wiggle3);
+      @include leaf-char(30%, 30%, 1, 1, 8s, wiggle3);
     }
+  }
+}
+
+@media only screen and (max-width: $mobile1) {
+  .bottom-scene {
+    transform: translateY(50%) scale(1.5);
   }
 }
 

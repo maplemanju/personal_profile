@@ -11,6 +11,11 @@
   font-size: 25px;
   color: #888;
 }
+@media only screen and (max-width: $mobile1) {
+  .work-body {
+    font-size: 21px;
+  }
+}
 
 .content {
   ul {
@@ -59,7 +64,7 @@
     transform: skewX(45deg);
     content: "";
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     left: 0;
     z-index: 1;
