@@ -15,7 +15,7 @@
     transition: opacity 0.3s ease;
   }
 }
-@include big-div("top", transparent);
+@include big-div("top", transparent, 75vh);
 @include big-div("white", rgba(255, 255, 255, 0.541));
 @include big-div("solid", #fff);
 @include big-div("trans", transparent);

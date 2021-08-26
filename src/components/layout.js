@@ -39,9 +39,11 @@ const Layout = ({ children, mainRef, pageTitle }) => {
       <main ref={mainRef}>
         {contents}
         <div className={style.background}>
-          <Droplets count={5}/>
+          <VisibleObject type="droplet" count={5}/>
+          <div className={style.bottomScene}>
+            <VisibleObject type="leaf" count={3}/>
+          </div>
         </div>
-
       </main>
       
 
@@ -74,10 +76,11 @@ const Layout = ({ children, mainRef, pageTitle }) => {
 
 export default Layout
 
-function Droplets({count}){
+function VisibleObject({type, count}){
+  const objclass = type === "droplet" ? style.droplet : style.leaf
   const drops = []
   for (let i = 0; i < count; i++) {
-    drops.push(<div key={`drop-${i}`} className={style.droplet}></div>)
+    drops.push(<div key={`${type}-${i}`} className={objclass}></div>)
   }
   return drops;
 }
