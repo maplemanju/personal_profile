@@ -3,16 +3,31 @@ import React, { useRef, useState } from 'react'
 import * as style from "./index.module.scss"
 import Layout from '../components/layout'
 import WorkSection from '../components/WorkSection'
-import WildseasarBg from '../../works/wild-seasar/wild-seasar-top.jpg'
-import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-site.jpg"
+import WildseasarBg from '../../works/wild-seasar/wild-seasar-thumb1.jpg'
+import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-thumb1.jpg"
 import ChatBot from '../components/ChatBot/ChatBot'
+import { Link } from 'gatsby'
 
 const IndexPage = ({data}) => {
   const [currentSection, setCurrentSection] = useState(0);
   const mainRef = useRef();
 
-  let lastScroll = 0;
   React.useEffect(() => {
+    
+    const onScrollEffect = (sections, scrollY, goingDown) => {
+      sections.forEach((section, i) => {
+        const secTop = section.offsetTop - 300
+        const secBot = section.offsetTop + section.offsetHeight - 300
+        const viewPos = goingDown ? (scrollY >= secTop && scrollY <= secBot) : (scrollY >= secTop && scrollY <= secBot)
+        if(viewPos) {
+           if(currentSection !== i) {
+            setCurrentSection(i);
+          }
+        }
+      });
+    }
+
+    let lastScroll = 0;
     const scrollIndex = (event) => {
       event.preventDefault();
       const scrollY = window.scrollY;
@@ -29,20 +44,8 @@ const IndexPage = ({data}) => {
     return () => {
       window.removeEventListener('scroll', scrollIndex);
     };
-  }, []);
-
-  const onScrollEffect = (sections, scrollY, goingDown) => {
-    sections.forEach((section, i) => {
-      const secTop = section.offsetTop - 300
-      const secBot = section.offsetTop + section.offsetHeight - 300
-      const viewPos = goingDown ? (scrollY >= secTop && scrollY <= secBot) : (scrollY >= secTop && scrollY <= secBot)
-      if(viewPos) {
-         if(currentSection !== i) {
-          setCurrentSection(i);
-        }
-      }
-    });
-   }
+    
+  }, [currentSection]);
 
   const sectionsObj = [
    { 
@@ -60,7 +63,7 @@ const IndexPage = ({data}) => {
       class: style.bigDivSolid,
       children: 
         <div>
-          <ChatBot/>
+          <div className={style.chatBotFrame}><ChatBot/></div>
           <p>Chat strings are pulled from json file as object. Its nodes have a pair of messages and choices, and the object gets updated every selection made by the user.</p>
         </div>
     },
@@ -70,8 +73,8 @@ const IndexPage = ({data}) => {
       class: style.bigDivSolid,
       children: 
       <div className={style.splashStyle1}>
-        <div style={{backgroundImage: `url(${WildseasarBg})`}}></div>
-        <div style={{backgroundImage: `url(${TenkaichiBg})`}}></div>
+        <div style={{backgroundImage: `url(${WildseasarBg})`}}><Link to="/works/wild-seasar" alt="Wild Seasar Homepage"></Link></div>
+        <div style={{backgroundImage: `url(${TenkaichiBg})`}}><Link to="/works/tenkaichi" alt="Tenkaichi Homepage"></Link></div>
       </div>
     }
   ]
