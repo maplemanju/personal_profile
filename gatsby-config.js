@@ -9,12 +9,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
-    },
+    "gatsby-plugin-smoothscroll",
     {
       resolve: "gatsby-source-filesystem",
       options: {

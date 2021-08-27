@@ -1,11 +1,8 @@
-import smoothscroll from 'smoothscroll-polyfill';
 import React from 'react';
 import './index.css';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import BotStrings from "./BotStrings";
 import qAndA from './ChatStrings'
-
-smoothscroll.polyfill();
 
 function Top(props) {
   return (

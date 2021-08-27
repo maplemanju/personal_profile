@@ -21,7 +21,7 @@ const Layout = ({ children, mainRef, pageTitle }) => {
     contents = children;
   }
   return (
-    <div>
+    <div style={{overflowX: "hidden"}}>
       <header> 
         <div className={style.headerBlock}>
           <div className={style.clouds}>
