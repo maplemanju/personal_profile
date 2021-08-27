@@ -48,22 +48,36 @@
         }
       }
     }
-    .anim-showletters {
-      animation: showletters 12s ease 0s infinite normal both;
-    }
-    @keyframes showletters {
-      0%{width: 0;}
-      25%{opacity:1;}
-      30% {width: 15em;opacity:0;}
-      100%{opacity:0;}
-    }
   }
+}
+
+.anim-showletters {
+  animation: showletters 12s ease 0s infinite normal both;
+}
+
+@keyframes showletters {
+  0%{width: 0;}
+  25%{opacity:1;}
+  30% {width: 15em;opacity:0;}
+  100%{opacity:0;}
+}
+
+@keyframes showlettersMobile {
+  0%{width: 0;}
+  25%{opacity:1;}
+  30% {width: 12em;opacity:0;}
+  100%{opacity:0;}
 }
 
 @media only screen and (max-width: $mobile1) {
   .big-div-top .layer-top p {
     font-size: 1.2em;
+    width: 12em;
   }
+  .anim-showletters {
+    animation: showlettersMobile 12s ease 0s infinite normal both;
+  }
+  
 }
 
 .splash-style1 {

@@ -6,11 +6,12 @@ body {
   line-height: normal;
   margin: 0;
   overflow-x: hidden;
+  color: #888;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: $dark-highlight;
 }
 
 .container {
@@ -194,7 +195,6 @@ $logo-color: #ccc;
 .logo {
   position: absolute;
   top: 0;
-  color: $light-main;
   font-size: 50px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -203,6 +203,9 @@ $logo-color: #ccc;
    2px -2px 0 $dark-main,
    -2px 2px 0 $dark-main,
     2px 2px 0 $dark-main;
+  a {
+    color: $light-main;
+  }
 }
 
 @mixin cloud-char($index, $x, $scale, $flip) {
@@ -279,6 +282,7 @@ footer {
   padding: 70px 0;
   text-align: center;
   font-size: 1rem;
+  color: #333;
 }
 
 .sns-links {
@@ -287,6 +291,7 @@ footer {
   margin-bottom: 3em;
   a {
     flex-basis: 100px;
+    color: inherit;
     svg {
       display: block;
       margin: 0 auto 1em;
@@ -301,6 +306,8 @@ footer {
 .big-div-top  {
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
   h1 {
     font-family: monospace;
     color: $dark-main;
