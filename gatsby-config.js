@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "My Profile",
+    siteUrl: "https://profile.amayadori.cloud",
+    title: "Amayadori Personal Profile",
+    description: "Living in the Japanese countryside as a nomad front end dev. As nerdy as it can get.",
+    image: "/images/frog.png",
   },
   plugins: [
     "gatsby-plugin-image",
@@ -10,6 +12,16 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
     "gatsby-plugin-smoothscroll",
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Amayadori Personal Profile",
+        short_name: "Amayadori Profile",
+        start_url: "/",
+        icon: "src/images/icon.png", 
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

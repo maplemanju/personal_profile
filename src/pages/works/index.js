@@ -2,12 +2,14 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
+import Seo from '../../components/seo'
 import Layout from '../../components/layout'
 import * as style from "./index.module.scss"
 
 const Works = ({ data }) => {
   return (
     <Layout pageTitle="Works">
+    <Seo title="Works" description="List of apps and sites developed by Amayadori." />
     <div className={style.container}>
     <ul className={style.worksList}>
       {data.allMdx.nodes.map((item, i)=> {

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-//import { StaticImage } from 'gatsby-plugin-image'
 import * as style from "./index.module.scss"
 import Layout from '../components/layout'
 import WorkSection from '../components/WorkSection'
+import Seo from '../components/seo'
 import WildseasarBg from '../../works/wild-seasar/wild-seasar-thumb1.jpg'
 import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-thumb1.jpg"
 import ChatBot from '../components/ChatBot/ChatBot'
@@ -77,7 +77,7 @@ const IndexPage = ({data}) => {
   ]
   return (
     <Layout pageTitle="Home" mainRef={mainRef}>
-
+    <Seo />
     {sectionsObj.map((section, i) => {
       let content = "";
       const classes = currentSection === i ? `${style.activeSec} ${section.class} ` : section.class;

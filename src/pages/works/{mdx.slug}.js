@@ -2,13 +2,16 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getSrc } from "gatsby-plugin-image"
 import Layout from '../../components/layout'
+import Seo from '../../components/seo'
 import * as style from "./index.module.scss"
 
 const BlogPost = ({data}) => {
   const thumnbail = getImage(data.mdx.frontmatter.featured_image);
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
+    <Seo title={data.mdx.frontmatter.title} description={`Developed by Maya on ${data.mdx.frontmatter.tool}`} image={getSrc(thumnbail)}/>
       <div className={style.container}>
         <p className={style.tool}>{data.mdx.frontmatter.tool}</p>
         <div className={style.featuredImage}>
