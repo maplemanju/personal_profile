@@ -3,10 +3,11 @@ import * as style from "./index.module.scss"
 import Layout from '../components/layout'
 import WorkSection from '../components/WorkSection'
 import Seo from '../components/seo'
+import Translate from '../components/translation'
 import WildseasarBg from '../../works/wild-seasar/wild-seasar-thumb1.jpg'
 import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-thumb1.jpg"
 import ChatBot from '../components/ChatBot/ChatBot'
-import { Link } from 'gatsby'
+import { LocalizedLink as Link } from "gatsby-theme-i18n"
 
 const IndexPage = ({data}) => {
   const [currentSection, setCurrentSection] = useState(0);
@@ -49,13 +50,12 @@ const IndexPage = ({data}) => {
 
   const sectionsObj = [
    { 
-      title: "asdas",
       class: style.bigDivTop,
       children:
       <div className={style.layerTop}>
-        <p className={style.animShowletters}>Hello, I'm Clemente</p>
-        <p className={style.animShowletters}>aspiring React dev</p>
-        <p className={style.animShowletters}>front end dev</p>
+        <p className={style.animShowletters}><Translate>topFade1</Translate></p>
+        <p className={style.animShowletters}><Translate>topFade2</Translate></p>
+        <p className={style.animShowletters}><Translate>topFade3</Translate></p>
       </div>
     },
     {
@@ -66,7 +66,7 @@ const IndexPage = ({data}) => {
     },
     {
       slug: "wild-seasar",
-      title: "Corporate Sites",
+      title: <Translate>Corporate Sites</Translate>,
       class: style.bigDivSolid,
       children: 
       <div className={style.splashStyle1}>

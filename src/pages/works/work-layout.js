@@ -7,7 +7,7 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import * as style from "./index.module.scss"
 
-const BlogPost = ({data}) => {
+const WorkPost = ({data}) => {
   const thumnbail = getImage(data.mdx.frontmatter.featured_image);
   const links = (type) => {
     let link = "";
@@ -45,11 +45,14 @@ const BlogPost = ({data}) => {
     </Layout>
   )
 }
-export default BlogPost
+export default WorkPost
 
 export const query = graphql`
-  query ($id: String) {
-    mdx(id: {eq: $id}) {
+  query ($id: String, $locale: String) {
+    mdx(
+      id: {eq: $id}
+      fields: {locale: {eq: $locale}}
+    ) {
       frontmatter {
         title
         category

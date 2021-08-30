@@ -191,12 +191,21 @@ $dropDeg: rotate(135deg);
   height: 120px;
   position:relative;
   background-image: linear-gradient(to bottom, white 25%, rgba(255,255,255,0.78), rgba(255,255,255,0));
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    .switcher a {
+      background: #ccc;
+      margin: 5px;
+      padding: 5px;
+    }
+  }
 }
 
 $logo-color: #ccc;
 .logo {
-  position: absolute;
-  top: 0;
   font-size: 50px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -218,7 +227,8 @@ $logo-color: #ccc;
 }
 
 .clouds {
-  position: relative;
+  @extend %abs_object;
+  width: 100%;
   height: 100%;
   height: 170px;
   background-image: radial-gradient(circle at top, #fff 16%, transparent 0%);
