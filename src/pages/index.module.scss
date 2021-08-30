@@ -39,6 +39,7 @@
       width: 15em;
       overflow: hidden;
       white-space: nowrap;
+      opacity: 0;
       &:first-child {
         + p {
           animation-delay: 4s;
@@ -57,6 +58,7 @@
 
 @keyframes showletters {
   0%{width: 0;}
+  5%{opacity:1;}
   25%{opacity:1;}
   30% {width: 15em;opacity:0;}
   100%{opacity:0;}

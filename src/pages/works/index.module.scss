@@ -100,3 +100,21 @@
     line-height: 1.6em;
   }
 }
+
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-links {
+  display: flex;
+  a {
+    padding: 5px;
+    fill: $dark-highlight;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
