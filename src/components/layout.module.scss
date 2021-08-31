@@ -196,13 +196,55 @@ $dropDeg: rotate(135deg);
     display: flex;
     justify-content: space-between;
     z-index: 2;
-    .switcher a {
-      background: #ccc;
-      margin: 5px;
-      padding: 5px;
-    }
   }
 }
+
+%switcher {
+  margin: 7px;
+  padding: 5px;
+  padding-top: 30px;
+  display: inline-block;
+  position: relative;
+  font-size: 0.6em;
+  color: $dark-highlight;
+  &:before , &:after {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    border: solid 1px $dark-highlight;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0 3px;
+  }
+  &:after {
+    left: 2.4em;
+    z-index: 1;
+    top: 10px;
+    background: $highlight;
+    color: #fff;
+  }
+}
+
+.switcher-to-ja a{
+  @extend %switcher;
+  &:before {
+    content: "JA";
+  }
+  &:after {
+    content: "EN"
+  }
+}
+
+.switcher-to-en a {
+  @extend %switcher;
+  &:before {
+    content: "EN";
+  }
+  &:after {
+    content: "JA"
+  }
+}
+
 
 $logo-color: #ccc;
 .logo {
@@ -216,6 +258,11 @@ $logo-color: #ccc;
     2px 2px 0 $dark-main;
   a {
     color: $light-main;
+  }
+}
+@media only screen and (max-width: $mobile1) {
+  .logo {
+    font-size: 40px;
   }
 }
 
@@ -309,11 +356,13 @@ footer {
 
 .big-div-top  {
   padding: 50px 0;
+  min-height: 200px;
+  box-sizing: border-box;
   text-align: center;
   position: relative;
   z-index: 1;
   h1 {
-    font-family: monospace;
+    font-family: "Courier New", monospace;
     color: $dark-main;
     font-size: 3em;
     margin: 0;
@@ -323,6 +372,7 @@ footer {
 @media only screen and (max-width: $mobile1) {
   .big-div-top  {
     padding: 20px 0;
+    min-height: 165px;
     h1 {
       font-size: 2em;
     }

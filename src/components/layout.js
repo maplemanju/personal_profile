@@ -9,7 +9,7 @@ import { useLocalization } from "gatsby-theme-i18n"
 const Layout = ({ children, mainRef, pageTitle }) => {
   const location = useLocation();
   const { locale } = useLocalization();
-  
+
   let contents;  
   if(pageTitle!== "Home") {
     contents = 
@@ -29,7 +29,6 @@ const Layout = ({ children, mainRef, pageTitle }) => {
 
   const localink = (lang) => {
     let to_path = location.pathname;
-    console.log(lang)
     if(lang==="ja") {
       to_path = to_path.replace('/ja', '');
     } else {
@@ -50,8 +49,8 @@ const Layout = ({ children, mainRef, pageTitle }) => {
           </div>
           <div className={style.container}>
             <div className={style.logo}><LocalizedLink to="/">Amayadori</LocalizedLink></div>
-            <nav className={style.switcher}>
-            <Link to={localink(locale)}>switch</Link>
+            <nav className={locale ==="ja"? style.switcherToEn : style.switcherToJa}>
+            <Link to={localink(locale)}>Language</Link>
             </nav>
           </div>
         </div>
@@ -71,10 +70,10 @@ const Layout = ({ children, mainRef, pageTitle }) => {
       <footer>
         <div className={style.container}>
           <div className={style.snsLinks}>
-            <Link to="/works" title="Works">
+            <LocalizedLink to="/works/" title="Works">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
               <span><Translate>Works</Translate></span>
-            </Link>
+            </LocalizedLink>
             <a href="https://amayadori.cloud/" title="Blog">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.009 13.388c-1.771 2.408-4.399 4.783-7.359 4.396-.801 1.119-1.695 2.682-2.688 4.496l-2.296.72c1.943-3.79 4.537-7.981 7.32-11.166-1.205.785-3.185 2.473-4.908 4.253-1.554-3.246.085-6.253 2.458-8.548-.067 1.081.413 2.068.772 2.575-.062-.904.044-2.52.704-3.92 1.323-1.116 2.492-1.92 3.829-2.622-.217.791-.033 1.739.222 2.331.116-.82.603-2.368 1.167-3.01 1.667-1.075 4.135-1.936 6.77-1.892-.291 1.623-1.143 4.258-2.294 5.893-.929.597-2.157.946-3.137 1.115.811.228 1.719.293 2.509.235-.575 1.207-1.157 2.311-2.039 3.666-1.216.679-2.77.978-3.832 1.035.743.389 2.097.617 2.802.443zm-14.009 8.612h-4v1h4v-1z"/></svg>
               <span><Translate>Blog</Translate></span>

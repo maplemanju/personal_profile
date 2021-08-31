@@ -23,7 +23,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   posts.forEach((node) => {
     createPage({
-      path: `/works/${node.frontmatter.slug}`,
+      path: `/works/${node.frontmatter.slug}/`,
       component: path.resolve(`./src/components/work-layout.js`),
       context: {
         slug: node.frontmatter.slug,
