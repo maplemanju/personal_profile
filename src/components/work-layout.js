@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { getSrc } from "gatsby-plugin-image"
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
-import * as style from "./index.module.scss"
+import Layout from './layout'
+import Seo from './seo'
+import * as style from "./work-layout.module.scss"
 
 const WorkPost = ({data}) => {
   const thumnbail = getImage(data.mdx.frontmatter.featured_image);
@@ -48,9 +48,9 @@ const WorkPost = ({data}) => {
 export default WorkPost
 
 export const query = graphql`
-  query ($id: String, $locale: String) {
+  query ($slug: String, $locale: String) {
     mdx(
-      id: {eq: $id}
+      frontmatter: { slug: { eq: $slug } }
       fields: {locale: {eq: $locale}}
     ) {
       frontmatter {
