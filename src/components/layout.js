@@ -1,10 +1,15 @@
 import * as React from 'react'
 import * as style from './layout.module.scss'
-import { LocalizedLink as Link } from "gatsby-theme-i18n"
+import { LocalizedLink } from "gatsby-theme-i18n"
+import { Link } from "gatsby"
 import Translate from '../components/translation'
+import { useLocation } from '@reach/router';
+import { useLocalization } from "gatsby-theme-i18n"
 
 const Layout = ({ children, mainRef, pageTitle }) => {
-
+  const location = useLocation();
+  const { locale } = useLocalization();
+  
   let contents;  
   if(pageTitle!== "Home") {
     contents = 
@@ -21,6 +26,18 @@ const Layout = ({ children, mainRef, pageTitle }) => {
   } else {
     contents = children;
   }
+
+  const localink = (lang) => {
+    let to_path = location.pathname;
+    console.log(lang)
+    if(lang==="ja") {
+      to_path = to_path.replace('/ja', '');
+    } else {
+      to_path = "/ja" + to_path;
+    }
+    return to_path;
+  }
+
   return (
     <div style={{overflowX: "hidden"}}>
       <header> 
@@ -32,10 +49,9 @@ const Layout = ({ children, mainRef, pageTitle }) => {
             <div></div>
           </div>
           <div className={style.container}>
-            <div className={style.logo}><Link to="/">Amayadori</Link></div>
+            <div className={style.logo}><LocalizedLink to="/">Amayadori</LocalizedLink></div>
             <nav className={style.switcher}>
-            <Link to="/" language="ja">ja</Link>
-            <Link to="/" language="en">en</Link>
+            <Link to={localink(locale)}>switch</Link>
             </nav>
           </div>
         </div>
