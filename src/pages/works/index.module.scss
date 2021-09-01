@@ -14,6 +14,7 @@
     flex-basis: 48%;
     list-style: none;
     margin-bottom: 1em;
+    overflow: hidden;
     a {
       display: flex;
       flex-direction: column;
@@ -27,14 +28,23 @@
         }
       }
       p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
         color: $dark-main;
       }
     }
   }
 }
+@media only screen and (max-width: $mobile1) {
+  .works-list p {
+    font-size: 0.7em;
+  }
+}
 
 .thumb {
-  height: 100%;
+  height: 90%;
   position: relative;
   background: $light-main;
   display: flex;

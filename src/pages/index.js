@@ -7,11 +7,12 @@ import Translate from '../components/translation'
 import WildseasarBg from '../../works/wild-seasar/wild-seasar-thumb1.jpg'
 import TenkaichiBg from  "../../works/tenkaichi/tenkaichi-thumb1.jpg"
 import ChatBot from '../components/ChatBot/ChatBot'
-import { LocalizedLink as Link } from "gatsby-theme-i18n"
+import { LocalizedLink as Link, useLocalization } from "gatsby-theme-i18n"
 
 const IndexPage = ({data}) => {
   const [currentSection, setCurrentSection] = useState(0);
   const mainRef = useRef();
+  const { locale } = useLocalization();
 
   React.useEffect(() => {
     
@@ -62,7 +63,7 @@ const IndexPage = ({data}) => {
       slug: "chat-bot",
       class: style.bigDivSolid,
       children: 
-        <div className={style.chatBotFrame}><ChatBot/></div>
+        <div className={style.chatBotFrame}><ChatBot locale={locale}/></div>
     },
     {
       slug: "wild-seasar",

@@ -2,7 +2,8 @@ import React from 'react';
 import './index.css';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import BotStrings from "./BotStrings";
-import qAndA from './ChatStrings'
+import chatStrings from './ChatStrings'
+import chatStringsJa from './ChatStrings.ja'
 
 function Top(props) {
   return (
@@ -86,7 +87,7 @@ function RepeatButton(props) {
 export default class ChatBot extends React.Component {
   constructor(props) {
     super(props);
-    const data = qAndA;
+    const data = props.locale === "ja" ? chatStringsJa : chatStrings;
     this.newMsgref = React.createRef();
     this.chatArea = React.createRef();
     this.state = {

@@ -6,7 +6,7 @@ const Translation = ({children}) => {
   const translations = {
     "topFade1" : {
       en: "Hello, I'm Clemente",
-      ja: "こんにちは、クレメンテです",
+      ja: "クレメンテです",
     },
     "topFade2" : {
       en: "aspiring React dev",
