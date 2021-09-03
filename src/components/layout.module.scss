@@ -330,7 +330,7 @@ $logo-color: #ccc;
 }
 
 footer {
-  padding: 70px 0;
+  padding: 60px 0;
   text-align: center;
   font-size: 1rem;
   color: #333;
@@ -340,9 +340,11 @@ footer {
   display: flex;
   justify-content: center;
   margin-bottom: 3em;
+  flex-wrap: wrap;
   a {
     flex-basis: 100px;
     color: inherit;
+    margin: 1em 0;
     svg {
       display: block;
       margin: 0 auto 1em;
