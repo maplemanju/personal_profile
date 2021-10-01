@@ -1,6 +1,17 @@
 import * as React from 'react'
 import * as styles from './pikachu.module.scss'
+import Translate from '../../components/translation'
+import Seo from '../../components/seo'
+import Layout from '../../components/layout'
 
+const ArtBoard = () => {
+  return(
+    <Layout pageTitle="CSS Art: Pikachu">
+      <Seo title="Pikachu - CSS ART" description="Pikachu on CSS" />
+      <Pikachu/>
+    </Layout>
+  )
+}
 
 const Pikachu = () => {
   return(
@@ -19,4 +30,4 @@ const Pikachu = () => {
   )
 }
 
-export default Pikachu
+export default ArtBoard
