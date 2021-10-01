@@ -1,0 +1,153 @@
+
+.contain {
+  display: grid;
+  place-items: center;
+  height: 500px;
+}
+
+$bodyColor: #F9D459;
+$bodyShadow: #DDA955;
+$cheekColor: #E15A43;
+$tongueColor: #E97B7C;
+$mouthColor: #83332C;
+
+.head {
+  background: $bodyColor;
+  width: 210px;
+  height: 150px;
+  border-radius: 46%;
+  position: relative;
+  // overflow: hidden;
+  &:before {
+    content:"";
+    background: $bodyColor;
+    width: 103%;
+    height: 180px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    margin-top: 10px
+  }
+}
+
+.cheeks {
+  &:before {
+    @extend %cheeks;
+    left: -5%;
+  }
+  &:after {
+    @extend %cheeks;
+    right: -5%;
+  }
+}
+
+%cheeks {
+  content: "";
+  background: $cheekColor;
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  top: 70%;
+}
+
+.mouth {
+  width: 40px;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: radial-gradient(circle at 10px -7px, transparent 13px, $mouthColor 13px);  
+  background-repeat: repeat-x;
+  height: 13px;
+  background-size: 20px;
+  width: 40px;
+  border-radius: 50%;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    height: 16px;
+    width: 28px;
+    border-radius: 9%;
+    left: 6px;
+    background: $mouthColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    background: $tongueColor;
+    width: 28px;
+    height: 21px;
+    top: 12px;
+    left: 6px;
+    border-radius: 50%;
+  }
+}
+
+@mixin eyes($eyeWPos) {
+  position: absolute;
+  width: 30px;
+  height: 35px;
+  background: radial-gradient(circle at $eyeWPos 25%, #fff 20%, #000 25%, #000 55%);
+  content: "";
+  top: 40%;
+  border-radius: 50%;
+}
+
+.eyes {
+  &:before {
+    @include eyes(55%);
+    left: 20%;
+  }
+  &:after {
+    @include eyes(45%);
+    right: 20%;
+  }
+}
+
+.ears {
+  .ear {
+    background: $bodyColor;
+    width: 45px;
+    height: 170px;
+    position: absolute;
+    bottom: 71%;
+    border-radius: 50%;
+    overflow:hidden;
+    &:first-child {
+      left: -27px;
+      bottom: 53%;
+      transform: rotate(298deg);
+    }
+    &:last-child {
+      right: -5px;
+      transform: rotate(25deg);
+    }
+    &:after {
+      content: "";
+      background: radial-gradient(circle at 50% 75px, $bodyColor 40%, #000 42%, #000 18%);
+      position: absolute;
+      width: 100%;
+      height: 60px;
+      top: 0;
+      left: 0;
+    }
+  }
+
+}
+
+.nose {
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 5px solid $mouthColor;
+  position: absolute;
+  top: 76%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
