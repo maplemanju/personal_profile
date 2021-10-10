@@ -5,12 +5,12 @@ const Translation = ({children}) => {
 
   const translations = {
     "topFade1" : {
-      en: "Hello, I'm Clemente",
-      ja: "クレメンテです",
+      en: "Hello, I'm Maya",
+      ja: "マヤです",
     },
     "topFade2" : {
-      en: "aspiring React dev",
-      ja: "Reactプログラマー",
+      en: "aspiring React engineer",
+      ja: "Reactエンジニア",
     },
     "topFade3" : {
       en: "front end dev",

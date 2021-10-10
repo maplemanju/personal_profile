@@ -91,7 +91,7 @@ const Layout = ({ children, mainRef, pageTitle }) => {
               <span>Twitter</span>
             </a>          
           </div>
-          <div>© {new Date().getFullYear()} Clemente - Amayadori.cloud</div>
+          <div>© {new Date().getFullYear()} Maya - Amayadori.cloud</div>
         </div>
       </footer>
     </div>
